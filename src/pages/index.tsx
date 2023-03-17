@@ -1,18 +1,19 @@
-import React from 'react';
-import { Footer, Header } from "../components/index";
+import React, { useEffect, useState } from "react";
+import { Footer, Header } from "../components";
 import { client } from "../../lib/client";
+import { GetServerSideProps, GetStaticProps } from "next";
 
-const Home = () => {
+const Home = (props: GetServerSideProps) => {
   return (
     <>
       <Header />
       <div>Home</div>
       <Footer />
     </>
-  )
-}
+  );
+};
 
-export const getServerSideProps = async () => {
+export const getServerSideProps: GetServerSideProps = async () => {
   const productQuery = '*[_type == "product"]';
   const lightsQuery = '*[_type == "lights"]';
 
@@ -20,8 +21,8 @@ export const getServerSideProps = async () => {
   const lights = await client.fetch(lightsQuery);
 
   return {
-    props: { products, lights }
-  }
-}
+    props: { products, lights },
+  };
+};
 
-export default Home
+export default Home;
