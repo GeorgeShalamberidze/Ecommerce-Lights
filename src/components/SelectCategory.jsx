@@ -1,8 +1,17 @@
 import React from 'react'
+import { FormControl, MenuItem, Select } from '@mui/material';
 
-const SelectCategory = () => {
+const SelectCategory = ({ categories, selectedCategory, handleChange }) => {
   return (
-    <div>SelectCategory</div>
+    <FormControl className="form_control">
+      <Select value={selectedCategory.id} onChange={handleChange}>
+        {categories.map((category) => {
+          <MenuItem key={category.id} value={category.category}>
+            {category.category}
+          </MenuItem>
+        })}
+      </Select>
+    </FormControl>
   )
 }
 
