@@ -27,7 +27,7 @@
     {
       "id": 4,
       "name": "Chilled Logic 2' x 2' LED Grow Kit",
-      "slug": "chilled-logic-2-x-2-led-grow-kit",
+      "slug": "chilled-logic-2-x-2-led-grow-kitv2",
       "price": "289.00",
       "reviewCount": 54,
       "imgUrl": "/assets/2x2_LOGIC.png"
@@ -35,7 +35,7 @@
     {
       "id": 5,
       "name": "Chilled Logic 3' x 3' LED Grow Kit",
-      "slug": "chilled-logic-3-x-3-led-grow-kit",
+      "slug": "chilled-logic-3-x-3-led-grow-kitv1",
       "price": "599.00",
       "reviewCount": 23,
       "imgUrl": "/assets/3x3_LOGIC_Kit.png"
@@ -43,7 +43,7 @@
     {
       "id": 7,
       "name": "Emerson Effect Booster Board",
-      "slug": "emerson-effect-booster-board",
+      "slug": "emerson-effect-booster-boardv34",
       "price": "79.00",
       "reviewCount": 14,
       "imgUrl": "/assets/EmersonEffectBoard.png"

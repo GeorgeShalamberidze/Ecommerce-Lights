@@ -8,6 +8,7 @@ import createEmotionCache from "../../config/createEmotionCache";
 import "@/styles/globals.css";
 import { ProductProvider } from "../context/ProductContext";
 import Home from "./index";
+import Layout from "@/components/Layout";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -23,9 +24,7 @@ export default function MyApp(props: MyAppProps) {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <ProductProvider>
-          <Home title="">
-            <Component {...pageProps} />
-          </Home>
+          <Component {...pageProps} />
         </ProductProvider>
       </ThemeProvider>
     </CacheProvider>

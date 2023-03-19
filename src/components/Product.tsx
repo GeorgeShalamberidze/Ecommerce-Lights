@@ -5,7 +5,7 @@ import IProduct from "@/interfaces/Product";
 const Product = ({ product }: { product: IProduct }) => {
   return (
     <div className="card">
-      <Link href={`/product/${product.slug}`}>
+      <Link href={`/product/${encodeURIComponent(product.slug)}`}>
         <img
           src={product.imgUrl}
           alt={product.name}
