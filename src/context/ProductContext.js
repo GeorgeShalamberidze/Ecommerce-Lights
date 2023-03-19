@@ -5,7 +5,6 @@ import useSWR from "swr";
 export const ProductContext = createContext();
 
 export const ProductProvider = ({ children }) => {
-  const [categories, setCategories] = useState(productCategories);
   const [products, setProducts] = useState([]);
 
   const fetcher = (url) => fetch(url).then((res) => res.json());

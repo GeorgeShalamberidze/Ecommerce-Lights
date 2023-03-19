@@ -3,14 +3,14 @@ import SelectCategory from "./SelectCategory";
 import { Container, InputBase, IconButton, Paper } from "@mui/material";
 import { BsSearch } from "react-icons/bs";
 import { ProductContext } from "../context/ProductContext";
-import Category from "@/interfaces/Category";
+import ICategory from "@/interfaces/Category";
 import styles from "../styles/SearchBar.module.css";
 
 const SearchBar = () => {
   const contextData = useContext(ProductContext);
   const { products, categories } = contextData;
 
-  const [selectedCategory, setSelectedCategory] = useState<Category>(
+  const [selectedCategory, setSelectedCategory] = useState<ICategory>(
     categories[0]
   );
 
@@ -25,7 +25,7 @@ const SearchBar = () => {
 
   const handleSelectChange = (e: any) => {
     const { value } = e.target;
-    const category = categories.find((cat: Category) => cat.id === value);
+    const category = categories.find((cat: ICategory) => cat.id === value);
     setSelectedCategory(category);
   };
 

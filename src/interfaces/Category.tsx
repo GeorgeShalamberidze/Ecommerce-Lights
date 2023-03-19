@@ -1,4 +1,4 @@
-export default interface Category {
-    id: number, 
-    name: string
+export default interface ICategory {
+  id: number;
+  name: string;
 }
