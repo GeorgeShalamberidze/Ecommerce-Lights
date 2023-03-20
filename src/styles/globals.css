@@ -77,3 +77,34 @@ menu {
 .primary-button {
   @apply rounded bg-slate-600 py-2 px-4 shadow outline-none hover:bg-slate-400 active:bg-amber-700;
 }
+
+@layer utilities {
+  .bord {
+    border: 1px solid rgba(134, 76, 76, 0.344);
+    border-radius: 10px;
+    box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.68);
+    -webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.68);
+    -moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.68);
+  }
+}
+
+@layer utilities {
+  .pause {
+    animation-play-state: paused;
+  }
+}
+
+@layer utilities {
+  .asd {
+    margin: 200px;
+  }
+}
+
+@layer utilities {
+  .small-image {
+    border-radius: 8px;
+    width: 70px;
+    height: 70px;
+    cursor: pointer;
+  }
+}
