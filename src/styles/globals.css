@@ -89,14 +89,16 @@ menu {
 }
 
 @layer utilities {
-  .pause {
+  .pausee {
+    -moz-animation-play-state: paused;
+    -webkit-animation-play-state: paused;
     animation-play-state: paused;
   }
 }
 
 @layer utilities {
   .asd {
-    margin: 200px;
+    border: 1px solid rgba(89, 62, 62, 0.507);
   }
 }
 
@@ -106,5 +108,23 @@ menu {
     width: 70px;
     height: 70px;
     cursor: pointer;
+  }
+}
+
+@layer utilities {
+  .roundBall {
+    color: white;
+    border-radius: 50%;
+    width: 23px;
+    height: 23px;
+    background-color: rgb(62, 158, 40);
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    -webkit-user-select: none; /* Safari */
+    -ms-user-select: none; /* IE 10 and IE 11 */
+    user-select: none; /* Standard syntax */
   }
 }

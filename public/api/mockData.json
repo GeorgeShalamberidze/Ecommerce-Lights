@@ -10,8 +10,7 @@
       "images": [
         { "imgUrl": "/assets/2x2_LOGIC.png " },
         { "imgUrl": "/assets/3x3_LOGIC_Kit.png" },
-        { "imgUrl": "/assets/EmersonEffectBoard.png " },
-        { "imgUrl": "/assets/2x2_LOGIC.png" }
+        { "imgUrl": "/assets/EmersonEffectBoard.png " }
       ]
     },
     {
@@ -22,10 +21,9 @@
       "reviewCount": 23,
       "imgUrl": "/assets/3x3_LOGIC_Kit.png",
       "images": [
-        { "imgUrl": "/assets/2x2_LOGIC.png " },
         { "imgUrl": "/assets/3x3_LOGIC_Kit.png" },
-        { "imgUrl": "/assets/EmersonEffectBoard.png " },
-        { "imgUrl": "/assets/2x2_LOGIC.png" }
+        { "imgUrl": "/assets/2x2_LOGIC.png " },
+        { "imgUrl": "/assets/EmersonEffectBoard.png " }
       ]
     },
     {
@@ -36,10 +34,9 @@
       "reviewCount": 14,
       "imgUrl": "/assets/EmersonEffectBoard.png",
       "images": [
-        { "imgUrl": "/assets/2x2_LOGIC.png " },
-        { "imgUrl": "/assets/3x3_LOGIC_Kit.png" },
         { "imgUrl": "/assets/EmersonEffectBoard.png " },
-        { "imgUrl": "/assets/2x2_LOGIC.png" }
+        { "imgUrl": "/assets/2x2_LOGIC.png " },
+        { "imgUrl": "/assets/3x3_LOGIC_Kit.png" }
       ]
     },
     {
@@ -52,8 +49,7 @@
       "images": [
         { "imgUrl": "/assets/2x2_LOGIC.png " },
         { "imgUrl": "/assets/3x3_LOGIC_Kit.png" },
-        { "imgUrl": "/assets/EmersonEffectBoard.png " },
-        { "imgUrl": "/assets/2x2_LOGIC.png" }
+        { "imgUrl": "/assets/EmersonEffectBoard.png " }
       ]
     },
     {
@@ -64,10 +60,9 @@
       "reviewCount": 23,
       "imgUrl": "/assets/3x3_LOGIC_Kit.png",
       "images": [
-        { "imgUrl": "/assets/2x2_LOGIC.png " },
         { "imgUrl": "/assets/3x3_LOGIC_Kit.png" },
-        { "imgUrl": "/assets/EmersonEffectBoard.png " },
-        { "imgUrl": "/assets/2x2_LOGIC.png" }
+        { "imgUrl": "/assets/2x2_LOGIC.png " },
+        { "imgUrl": "/assets/EmersonEffectBoard.png " }
       ]
     },
     {
@@ -78,10 +73,9 @@
       "reviewCount": 14,
       "imgUrl": "/assets/EmersonEffectBoard.png",
       "images": [
-        { "imgUrl": "/assets/2x2_LOGIC.png " },
-        { "imgUrl": "/assets/3x3_LOGIC_Kit.png" },
         { "imgUrl": "/assets/EmersonEffectBoard.png " },
-        { "imgUrl": "/assets/2x2_LOGIC.png" }
+        { "imgUrl": "/assets/2x2_LOGIC.png " },
+        { "imgUrl": "/assets/3x3_LOGIC_Kit.png" }
       ]
     }
   ]

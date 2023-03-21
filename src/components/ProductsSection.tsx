@@ -1,11 +1,10 @@
-import { ProductContext } from "@/context/ProductContext";
+import { useStateContext } from "@/context/ProductContext";
 import IProduct from "@/interfaces/Product";
-import React, { useContext } from "react";
+import React from "react";
 import Product from "./Product";
 
 const ProductsSection = () => {
-  const contextData = useContext(ProductContext);
-  const { products, categories } = contextData;
+  const { products, categories } = useStateContext();
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 mx-14 my-8">

@@ -4,7 +4,7 @@ import IProduct from "@/interfaces/Product";
 
 const ProductII = ({ product }: { product: IProduct }) => {
   return (
-    <div className="bord shadow hover:transform-none border-red-200 mb-20">
+    <div className="bord shadow border-red-200 mb-20">
       <Link href={`/product/${encodeURIComponent(product.slug)}`}>
         <img src={product.imgUrl} alt={product.name} className="w-full" />
       </Link>

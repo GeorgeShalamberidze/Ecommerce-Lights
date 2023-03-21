@@ -6,7 +6,7 @@ import { CacheProvider, EmotionCache } from "@emotion/react";
 import theme from "../../config/theme";
 import createEmotionCache from "../../config/createEmotionCache";
 import "@/styles/globals.css";
-import { ProductProvider } from "../context/ProductContext";
+import { StateContext } from "../context/ProductContext";
 import Home from "./index";
 import Layout from "@/components/Layout";
 
@@ -23,9 +23,9 @@ export default function MyApp(props: MyAppProps) {
     <CacheProvider value={emotionCache}>
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <ProductProvider>
+        <StateContext>
           <Component {...pageProps} />
-        </ProductProvider>
+        </StateContext>
       </ThemeProvider>
     </CacheProvider>
   );

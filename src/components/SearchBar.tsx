@@ -1,13 +1,13 @@
-import React, { Context, SyntheticEvent, useContext, useState } from "react";
+import React, { SyntheticEvent, useContext, useState } from "react";
 import SelectCategory from "./SelectCategory";
 import { Container, InputBase, IconButton, Paper } from "@mui/material";
 import { BsSearch } from "react-icons/bs";
-import { ProductContext } from "../context/ProductContext";
+import { Context } from "../context/ProductContext";
 import ICategory from "@/interfaces/Category";
 import styles from "../styles/SearchBar.module.css";
 
 const SearchBar = () => {
-  const contextData = useContext(ProductContext);
+  const contextData = useContext(Context);
   const { products, categories } = contextData;
 
   const [selectedCategory, setSelectedCategory] = useState<ICategory>(

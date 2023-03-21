@@ -1,8 +1,7 @@
 import Layout from "@/components/Layout";
 import IProduct from "@/interfaces/Product";
 import { useRouter } from "next/router";
-import React, { useContext, useState } from "react";
-import data from "../../../public/data/products";
+import React, { useState, useEffect } from "react";
 import { BiError } from "react-icons/bi";
 import {
   AiFillStar,
@@ -12,17 +11,27 @@ import {
 } from "react-icons/ai";
 import { IoIosArrowRoundBack } from "react-icons/io";
 import Link from "next/link";
-import { ProductContext } from "@/context/ProductContext";
+import { useStateContext } from "@/context/ProductContext";
 import { ProductII } from "@/components";
 
 const ProductDetails = () => {
   const [index, setIndex] = useState(0);
+  const [hovered, setHovered] = useState(false);
+
   const { query } = useRouter();
   const { slug } = query;
-  const contextData = useContext(ProductContext);
-  const { products, categories } = contextData;
 
-  const product = data.find((x) => x.slug === slug);
+  const { products, qty, incrementQuantity, decrementQuantity, onAddToCart } =
+    useStateContext();
+
+  const product: IProduct = products.find((x: IProduct) => x.slug === slug);
+  const handleHover = () => {
+    setHovered(!hovered);
+  };
+
+  useEffect(() => {
+    setIndex(0);
+  }, [slug]);
 
   if (!product) {
     return (
@@ -35,8 +44,6 @@ const ProductDetails = () => {
     );
   }
 
-  const handleOnClick = () => {};
-  const handleAddToCartClick = () => {};
   const handleBuyNowClick = () => {};
 
   return (
@@ -59,13 +66,12 @@ const ProductDetails = () => {
           <div className="small-images-container flex mt-5 gap-4 mx-20">
             {product.images.map((item: { imgUrl: string }, i: number) => (
               <img
+                key={i}
                 src={item.imgUrl}
                 alt="product-description"
                 onClick={() => setIndex(i)}
                 className={
-                  i === index
-                    ? "small-image active: border-l-rose-500"
-                    : "small-image"
+                  i === index ? "small-image active: asd" : "small-image"
                 }
               />
             ))}
@@ -96,18 +102,16 @@ const ProductDetails = () => {
             <p className="quantity-desc flex gap-5 border-2 p-1 items-center">
               <span
                 className="minus cursor-pointer border-r-2 px-3"
-                onClick={handleOnClick}
+                onClick={decrementQuantity}
               >
                 <AiOutlineMinus size={30} />
               </span>
 
-              <span className="num font-bold text-lg" onClick={handleOnClick}>
-                0
-              </span>
+              <span className="num font-bold text-lg">{qty}</span>
 
               <span
                 className="plus cursor-pointer border-l-2 px-3"
-                onClick={handleOnClick}
+                onClick={incrementQuantity}
               >
                 <AiOutlinePlus size={30} />
               </span>
@@ -117,7 +121,7 @@ const ProductDetails = () => {
             <button
               type="button"
               className="add-to-cart primary-button cursor-pointer text-cyan-50  w-2/3"
-              onClick={handleAddToCartClick}
+              onClick={() => onAddToCart(product, qty)}
             >
               Add to Cart
             </button>
@@ -134,14 +138,26 @@ const ProductDetails = () => {
       </div>
       <div className="flex justify-center text-center font-bold text-2xl mt-16 flex-col">
         <h2 className="mb-16">You may also like</h2>
-        <div className="marquee flex relative overflow-x-hidden">
-          <div className="flex flex-row gap-4 animate-marquee whitespace-nowrap">
+        <div
+          className="marquee flex relative overflow-x-hidden"
+          onMouseEnter={handleHover}
+          onMouseLeave={handleHover}
+        >
+          <div
+            className={`flex flex-row gap-4 animate-marquee whitespace-nowrap ${
+              hovered ? "pausee" : ""
+            }`}
+          >
             {products.map((item: IProduct, i: number) => {
               return <ProductII product={item} key={i} />;
             })}
           </div>
 
-          <div className="flex flex-row gap-4 absolute top-0 animate-marquee2 whitespace-nowrap pl-3">
+          <div
+            className={`flex flex-row gap-4 absolute top-0 animate-marquee2 whitespace-nowrap pl-3 ${
+              hovered ? "pausee" : ""
+            }`}
+          >
             {products.map((item: IProduct, i: number) => {
               return <ProductII product={item} key={i} />;
             })}

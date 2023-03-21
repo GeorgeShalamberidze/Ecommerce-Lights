@@ -18,6 +18,13 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "src/components/SelectCategory.tsx", "src/context/ProductContext.js"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "src/components/SelectCategory.tsx",
+    "src/context/ProductContext.js",
+    "context/StateContext.js"
+  ],
   "exclude": ["node_modules"]
 }
