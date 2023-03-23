@@ -8,8 +8,8 @@ export const StateContext = ({ children }) => {
   const [products, setProducts] = useState([]);
   const [showCart, setShowCart] = useState(false);
   const [cartItems, setCartItems] = useState([]);
-  const [totalPrice, setTotalPrice] = useState();
-  const [totalQuantity, setTotalQuantity] = useState();
+  const [totalPrice, setTotalPrice] = useState(0);
+  const [totalQuantity, setTotalQuantity] = useState(0);
   const [qty, setQty] = useState(1);
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
@@ -34,15 +34,38 @@ export const StateContext = ({ children }) => {
       product.quantity = quantity;
       setCartItems([...cartItems, { ...product }]);
     }
+  };
 
-    console.log(
-      product,
-      quantity,
-      cartItems,
-      checkProductInCart,
-      totalPrice,
-      totalQuantity
-    );
+  const handleDelete = (id) => {
+    let foundProduct = cartItems.find((product) => product.id === id);
+    let newCartItems = cartItems.filter((item) => item.id !== foundProduct.id);
+
+    setCartItems([...newCartItems]);
+    setTotalPrice((prev) => prev - foundProduct.quantity * foundProduct.price);
+    setTotalQuantity((prev) => prev - foundProduct.quantity);
+  };
+
+  const toggleCartItemQuantity = (id, value) => {
+    let foundProduct = cartItems.find((product) => product.id === id);
+    let index = cartItems.findIndex((product) => product.id === id);
+    let newCartItems = cartItems.filter((item) => item.id !== id);
+
+    if (value === "increment") {
+      foundProduct = { ...foundProduct, quantity: foundProduct.quantity + 1 };
+      newCartItems.splice(index, 0, foundProduct);
+      setCartItems([...newCartItems]);
+      setTotalPrice((prev) => prev + foundProduct.price);
+      setTotalQuantity((prev) => prev + 1);
+    } else if (value === "decrement") {
+      if (foundProduct.quantity > 1) {
+        foundProduct = { ...foundProduct, quantity: foundProduct.quantity - 1 };
+        newCartItems.splice(index, 0, foundProduct);
+        setCartItems(newCartItems);
+        setTotalPrice((prev) => prev - foundProduct.price);
+        setTotalQuantity((prev) => prev - 1);
+      }
+    } else {
+    }
   };
 
   const incrementQuantity = () => {
@@ -72,9 +95,12 @@ export const StateContext = ({ children }) => {
         totalPrice,
         totalQuantity,
         qty,
+        setShowCart,
         incrementQuantity,
         decrementQuantity,
         onAddToCart,
+        toggleCartItemQuantity,
+        handleDelete,
       }}
     >
       {children}

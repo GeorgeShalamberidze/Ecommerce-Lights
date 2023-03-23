@@ -15,7 +15,7 @@ const Product = ({ product }: { product: IProduct }) => {
 
       <div className="flex flex-col items-center justify-center p-5">
         <Link href={`/product/${product.slug}`}>
-          <h2 className="text-lg text-center">{product.name}</h2>
+          <h2 className="text-lg text-center max-w-sm">{product.name}</h2>
         </Link>
         <p>${product.price}</p>
         <button

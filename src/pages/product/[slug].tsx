@@ -49,7 +49,7 @@ const ProductDetails = () => {
   return (
     <Layout title={`${product.name} - Light.ge`}>
       <div className="mx-20 mt-16 mb-4">
-        <Link href="/" className="flex text-center items-center">
+        <Link href="/" className="flex text-center items-center w-fit">
           <IoIosArrowRoundBack size={20} />
           <span>back to home page</span>
         </Link>
@@ -137,7 +137,7 @@ const ProductDetails = () => {
         </div>
       </div>
       <div className="flex justify-center text-center font-bold text-2xl mt-16 flex-col">
-        <h2 className="mb-16">You may also like</h2>
+        <h2 className="mb-16 select-none">You may also like</h2>
         <div
           className="marquee flex relative overflow-x-hidden"
           onMouseEnter={handleHover}

@@ -6,4 +6,5 @@ export default interface IProduct {
   reviewCount: number;
   imgUrl: string;
   images: [{ imgUrl: string }];
+  quantity?: number;
 }

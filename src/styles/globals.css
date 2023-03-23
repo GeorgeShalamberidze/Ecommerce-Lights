@@ -40,6 +40,7 @@ a {
 a,
 button {
   cursor: revert;
+  user-select: none;
 }
 
 ol,
@@ -126,5 +127,85 @@ menu {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
+  }
+}
+
+@layer utilities {
+  .underline {
+    text-decoration: underline;
+  }
+}
+
+@layer utilities {
+  .cart-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    transition: all 1s ease-in-out;
+  }
+}
+
+@layer utilities {
+  .cart-container {
+    height: 100vh;
+    width: 600px;
+    background-color: white;
+    float: right;
+    padding: 40px 10px;
+    position: relative;
+    visibility: visible;
+    user-select: none;
+  }
+}
+
+@layer utilities {
+  .cart-heading {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    gap: 2px;
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+  }
+}
+
+@layer utilities {
+  .trash-bin-hover {
+    fill: red;
+    transition: all 0.3s ease;
+  }
+}
+
+@layer utilities {
+  .close-button {
+    cursor: pointer;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .close-button:hover {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+  }
+}
+
+@layer utilities {
+  .cart-items-in-cart {
+    overflow: overlay;
+    height: calc(100vh - 204px);
+  }
+}
+
+@layer utilities {
+  .ddddd {
+    box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
   }
 }
