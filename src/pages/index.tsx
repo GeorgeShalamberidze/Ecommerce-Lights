@@ -3,10 +3,12 @@ import { client } from "../../lib/client";
 import { GetServerSideProps, GetStaticProps } from "next";
 import Layout from "@/components/Layout";
 import ProductsSection from "@/components/ProductsSection";
+import { HeroBanner } from "@/components";
 
 const Home = () => {
   return (
     <Layout title="Home Page">
+      <HeroBanner />
       <ProductsSection />
     </Layout>
   );

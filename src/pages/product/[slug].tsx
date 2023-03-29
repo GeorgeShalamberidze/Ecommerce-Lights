@@ -7,6 +7,8 @@ import {
   AiFillStar,
   AiOutlineMinus,
   AiOutlinePlus,
+  AiOutlineRight,
+  AiOutlineLeft,
   AiOutlineStar,
 } from "react-icons/ai";
 import { IoIosArrowRoundBack } from "react-icons/io";
@@ -46,6 +48,24 @@ const ProductDetails = () => {
 
   const handleBuyNowClick = () => {};
 
+  const handleRightClick = () => {
+    let lastImageIndex = product.images.length - 1;
+    if (index == lastImageIndex) {
+      setIndex(0);
+    } else {
+      setIndex((prev) => prev + 1);
+    }
+  };
+
+  const handleLeftClick = () => {
+    let lastImageIndex = product.images.length - 1;
+    if (index == 0) {
+      setIndex(lastImageIndex);
+    } else {
+      setIndex((prev) => prev - 1);
+    }
+  };
+
   return (
     <Layout title={`${product.name} - Light.ge`}>
       <div className="mx-20 mt-16 mb-4">
@@ -54,14 +74,24 @@ const ProductDetails = () => {
           <span>back to home page</span>
         </Link>
       </div>
-      <div className="flex">
+      <div className="flex items-center justify-center gap-20">
         <div className="images-wrapper">
-          <div className="main-img-container">
+          <div className="main-img-container flex items-center">
+            <AiOutlineLeft
+              size={50}
+              className="cursor-pointer"
+              onClick={handleLeftClick}
+            />
             <img
               src={product.images[index].imgUrl}
               alt="products"
               className="object-contain w-full h-96"
             ></img>
+            <AiOutlineRight
+              size={50}
+              className="cursor-pointer"
+              onClick={handleRightClick}
+            />
           </div>
           <div className="small-images-container flex mt-5 gap-4 mx-20">
             {product.images.map((item: { imgUrl: string }, i: number) => (

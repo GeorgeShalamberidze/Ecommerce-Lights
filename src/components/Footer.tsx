@@ -7,8 +7,15 @@ import {
 
 const Footer = () => {
   return (
-    <footer className="flex h-20 shadow-inner justify-center items-center flex-col">
-      <p>Copyright &#169; 2023 Light.ge</p>
+    <footer
+      className="flex shadow-inner justify-center items-center flex-col text-white"
+      style={{ backgroundColor: "rgb(71, 85, 105)" }}
+    >
+      <div>
+        <h1>asd</h1>
+        <h1>asd</h1>
+        <h1>asd</h1>
+      </div>
       <div>
         <p className="flex cursor-pointer">
           <AiFillInstagram size={30} />
@@ -16,6 +23,7 @@ const Footer = () => {
           <AiOutlineFacebook size={30} />
         </p>
       </div>
+      <p>Copyright &#169; 2023 Light.ge</p>
     </footer>
   );
 };

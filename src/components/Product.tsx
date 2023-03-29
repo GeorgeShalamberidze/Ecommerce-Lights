@@ -1,8 +1,11 @@
 import React from "react";
 import Link from "next/link";
 import IProduct from "@/interfaces/Product";
+import { useStateContext } from "@/context/ProductContext";
 
 const Product = ({ product }: { product: IProduct }) => {
+  const { onAddToCart } = useStateContext();
+
   return (
     <div className="card">
       <Link href={`/product/${encodeURIComponent(product.slug)}`}>
@@ -21,6 +24,7 @@ const Product = ({ product }: { product: IProduct }) => {
         <button
           className="primary-button cursor-pointer text-cyan-50"
           type="button"
+          onClick={() => onAddToCart(product, 1)}
         >
           Add to Cart
         </button>

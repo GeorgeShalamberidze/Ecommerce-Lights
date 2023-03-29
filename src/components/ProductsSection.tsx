@@ -7,10 +7,15 @@ const ProductsSection = () => {
   const { products, categories } = useStateContext();
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 mx-14 my-8">
-      {products.map((prod: IProduct) => {
-        return <Product product={prod} key={prod.slug} />;
-      })}
+    <div className="mt-20">
+      <h1 className="flex text-center justify-center my-16 font-bold text-3xl">
+        Featured Products
+      </h1>
+      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4 mx-14 my-8">
+        {products.map((prod: IProduct) => {
+          return <Product product={prod} key={prod.slug} />;
+        })}
+      </div>
     </div>
   );
 };
