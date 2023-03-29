@@ -67,6 +67,35 @@ menu {
   height: 120px;
 }
 
+.slick-prev,
+.slick-next {
+  z-index: 1;
+  width: 25px;
+  height: 25px;
+  top: 50%;
+}
+
+.slick-prev:before,
+.slick-next:before {
+  color: black;
+  background-color: black;
+  opacity: 0.8;
+  border-radius: 50%;
+}
+
+.slick-prev:hover:before,
+.slick-next:hover:before {
+  opacity: 1;
+}
+
+.slick-prev {
+  left: 10px !important;
+}
+
+.slick-next {
+  right: 10px !important;
+}
+
 .header_container a img {
   max-width: 200px;
   width: 200px;
@@ -76,6 +105,10 @@ menu {
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+.slick-dots {
+  overflow: scroll !important;
 }
 
 .card {
@@ -214,5 +247,13 @@ menu {
     box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
     -moz-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
+  }
+}
+
+@layer utilities {
+  .remove-underline:hover {
+    text-decoration: none;
+    text-decoration-line: none;
+    opacity: 0.6;
   }
 }

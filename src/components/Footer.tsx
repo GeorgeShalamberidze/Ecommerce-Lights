@@ -14,22 +14,63 @@ const Footer = () => {
     >
       <div className="flex gap-52">
         <div className="company">
-          <h1>COMPANY INFO</h1>
-          <div className="flex ">
-            <Link href="/company/about-us">About Us</Link>
-            <Link href="/company/return-policy">Return Policy</Link>
-            <Link href="/company/shipping-policy">Shipping Policy</Link>
+          <h1 className="font-bold text-xl mb-2 mt-4">COMPANY INFO</h1>
+          <div className="flex flex-col ">
+            <Link href="/company/about-us" className="remove-underline">
+              About Us
+            </Link>
+            <Link href="/company/return-policy" className="remove-underline">
+              Return Policy
+            </Link>
+            <Link href="/company/shipping-policy" className="remove-underline">
+              Shipping Policy
+            </Link>
           </div>
         </div>
-        <div>
-          <p className="flex cursor-pointer">
-            <AiFillInstagram size={30} />
-            <AiOutlineTwitter size={30} />
-            <AiOutlineFacebook size={30} />
+
+        <div className="contact">
+          <h1 className="font-bold text-xl mb-2 mt-4">Contact Us</h1>
+          <div className="flex flex-col ">
+            <Link href="tel:+995577026102" className="remove-underline">
+              (+995) 577-02-61-02
+            </Link>
+            <Link
+              href="mailto:giorgishalamberidze1995@gmail.com"
+              className="remove-underline"
+            >
+              giorgishalamberidze1995@gmail.com
+            </Link>
+          </div>
+        </div>
+
+        <div className="">
+          <h1 className="font-bold text-xl mb-2 mt-4">Follow Us</h1>
+          <p className="flex gap-3">
+            <Link
+              href="https://www.instagram.com"
+              target="_blank"
+              className="cursor-pointer"
+            >
+              <AiFillInstagram size={30} />
+            </Link>
+            <Link
+              href="https://www.twitter.com"
+              target="_blank"
+              className="cursor-pointer"
+            >
+              <AiOutlineTwitter size={30} />
+            </Link>
+            <Link
+              href="https://www.facebook.com"
+              target="_blank"
+              className="cursor-pointer"
+            >
+              <AiOutlineFacebook size={30} />
+            </Link>
           </p>
         </div>
       </div>
-      <p>Copyright &#169; 2023 Light.ge</p>
+      <p className="mt-8 mb-2 text-sm">Copyright &#169; 2023 Lights.ge</p>
     </footer>
   );
 };
