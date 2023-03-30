@@ -1,25 +1,27 @@
 import Layout from "@/components/Layout";
+import { FormData } from "@/types/FormType";
 import Link from "next/link";
-import React, { useState } from "react";
-import {
-  FieldValues,
-  RegisterOptions,
-  SubmitHandler,
-  useForm,
-} from "react-hook-form";
+import React, { useState, useEffect } from "react";
+import { RegisterOptions, SubmitHandler, useForm } from "react-hook-form";
 import { BiShow } from "react-icons/bi";
-
-type FormData = {
-  email: string;
-  password: string;
-};
+import { signIn, useSession } from "next-auth/react";
+import { useRouter } from "next/router";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const { data: session } = useSession();
+  const router = useRouter();
+  const { redirect } = router.query;
+
+  useEffect(() => {
+    if (session?.user) {
+      router.push(redirect?.toString() || "/");
+    }
+  }, [router, session, redirect]);
+
   const {
     register,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm<FormData>({
     // set the type of the register function
@@ -31,11 +33,23 @@ const Login = () => {
     criteriaMode: "firstError",
   });
 
-  const submitHandler: SubmitHandler<FormData> = ({
+  const submitHandler: SubmitHandler<FormData> = async ({
     email,
     password,
   }: FormData) => {
-    console.log(email, password);
+    try {
+      const result = await signIn("credentials", {
+        redirect: false,
+        email,
+        password,
+      });
+      if (result?.error) {
+        console.log(result.error);
+      }
+    } catch (error) {
+      console.log(error);
+      console.error(error);
+    }
   };
 
   const emailRegex: RegExp =

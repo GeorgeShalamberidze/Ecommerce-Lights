@@ -7,8 +7,7 @@ import theme from "../../config/theme";
 import createEmotionCache from "../../config/createEmotionCache";
 import "@/styles/globals.css";
 import { StateContext } from "../context/ProductContext";
-import Home from "./index";
-import Layout from "@/components/Layout";
+import { SessionProvider } from "next-auth/react";
 
 // Client-side cache, shared for the whole session of the user in the browser.
 const clientSideEmotionCache = createEmotionCache();
@@ -20,13 +19,15 @@ interface MyAppProps extends AppProps {
 export default function MyApp(props: MyAppProps) {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
   return (
-    <CacheProvider value={emotionCache}>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <StateContext>
-          <Component {...pageProps} />
-        </StateContext>
-      </ThemeProvider>
-    </CacheProvider>
+    <SessionProvider session={pageProps.session}>
+      <CacheProvider value={emotionCache}>
+        <ThemeProvider theme={theme}>
+          <CssBaseline />
+          <StateContext>
+            <Component {...pageProps} />
+          </StateContext>
+        </ThemeProvider>
+      </CacheProvider>
+    </SessionProvider>
   );
 }

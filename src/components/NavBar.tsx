@@ -4,22 +4,65 @@ import Cart from "./Cart";
 import { CgProfile } from "react-icons/cg";
 import { useStateContext } from "@/context/ProductContext";
 import { BsFillCartFill } from "react-icons/bs";
+import { useSession } from "next-auth/react";
+import Button from "@mui/material/Button";
+import Menu from "@mui/material/Menu";
+import MenuItem from "@mui/material/MenuItem";
 
 const NavBar = () => {
   const { showCart, setShowCart, totalQuantity } = useStateContext();
+  const { status, data: session } = useSession();
+  const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
+  const open = Boolean(anchorEl);
+  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
 
   return (
     <div className="nav_container">
       <nav>
         <ul className="flex justify-between items-center px-4 text-lg">
-          <li className="p-2">
-            <Link
-              href="/login"
-              className="flex items-center mx-5 gap-2 font-bold text-xl"
-            >
-              <span>Login</span>
-              <CgProfile size={25} />
-            </Link>
+          <li className="p-2 profile_logo">
+            {status === "loading" ? (
+              "Loading"
+            ) : session?.user ? (
+              <div>
+                <Button
+                  id="basic-button"
+                  aria-controls={open ? "basic-menu" : undefined}
+                  aria-haspopup="true"
+                  aria-expanded={open ? "true" : undefined}
+                  onClick={handleClick}
+                  className="font-bold text-lg text-white"
+                >
+                  {session?.user?.name}
+                </Button>
+                <Menu
+                  id="basic-menu"
+                  anchorEl={anchorEl}
+                  open={open}
+                  onClose={handleClose}
+                  MenuListProps={{
+                    "aria-labelledby": "basic-button",
+                  }}
+                >
+                  <MenuItem onClick={handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={handleClose}>My account</MenuItem>
+                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                </Menu>
+              </div>
+            ) : (
+              <Link
+                href="/login"
+                className="flex items-center mx-5 gap-2 font-bold text-xl"
+              >
+                <span>Login</span>
+                <CgProfile size={25} />
+              </Link>
+            )}
           </li>
           <li className="p-2">
             <button

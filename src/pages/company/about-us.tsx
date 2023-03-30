@@ -4,9 +4,11 @@ import React from "react";
 const AboutUs = () => {
   return (
     <Layout title="About Us">
-      <div className="flex text-center justify-center items-center m-20">
+      <div className="flex justify-center items-center m-20">
         <div className=" max-w-2xl">
-          <h1 className="text-3xl font-bold mb-10">About Us</h1>
+          <h1 className="text-3xl font-bold justify-center flex mb-10">
+            About Us
+          </h1>
           <h3>
             <p>
               Founded in 2009, we have delivered expertly designed LED packages

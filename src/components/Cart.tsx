@@ -23,9 +23,12 @@ const Cart = () => {
     handleDelete,
   } = useStateContext();
 
-  document.addEventListener("mousedown", (e) => {
+  document.addEventListener("click", (e) => {
     const target = e.target as HTMLElement;
-    if (target?.className === "cart-wrapper") {
+    if (
+      target?.className === "cart-wrapper" ||
+      target?.className === "profile_logo"
+    ) {
       setShowCart(false);
     }
   });
@@ -37,8 +40,8 @@ const Cart = () => {
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
-      <div className="cart-container">
-        <div className="flex items-center justify-between h-12">
+      <div className="cart-container relative">
+        <div className="flex items-center justify-between h-12 cart-header">
           <button type="button" className="cart-heading text-black">
             <span className=" font-bold text-lg">Your Cart</span>
             <span className="ml-2 text-green-600  font-bold text-lg">{`(${totalQuantity} Items)`}</span>
@@ -52,7 +55,7 @@ const Cart = () => {
         </div>
 
         {cartItems.length < 1 && (
-          <div className="flex justify-center items-center flex-col mt-48">
+          <div className="flex justify-center items-center flex-col m-10">
             <AiOutlineShopping fill="black" size={150} />
             <h1 className="text-black font-bold text-4xl">
               Shopping Cart is Empty
@@ -71,7 +74,7 @@ const Cart = () => {
           {cartItems.length >= 1 &&
             cartItems.map((product: IProduct, i: number) => (
               <div
-                className="product flex justify-between w-full gap-3 mt-8 border-b border-gray-300"
+                className="product flex justify-between w-full gap-3 border-b border-gray-300 cart_items"
                 key={product.id}
               >
                 <img
@@ -131,7 +134,7 @@ const Cart = () => {
             ))}
         </div>
         {cartItems.length >= 1 && (
-          <div className="flex justify-center items-center absolute bottom-0 left-0 w-full flex-col gap-5 z-50 p-5 ddddd">
+          <div className="flex justify-center items-center w-full flex-col gap-2 z-50 p-5 ddddd">
             <div className="font-bold text-black text-3xl flex w-4/12 justify-between gap-2">
               <h4>Subtotal: </h4>
               <h3 className="text-gray-500 font-semibold">${totalPrice}</h3>

@@ -5,7 +5,6 @@ import { useStateContext } from "@/context/ProductContext";
 
 const Product = ({ product }: { product: IProduct }) => {
   const { onAddToCart } = useStateContext();
-
   return (
     <div className="card">
       <Link href={`/product/${encodeURIComponent(product.slug)}`}>

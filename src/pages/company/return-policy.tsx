@@ -6,7 +6,7 @@ const ReturnPolicy = () => {
     <Layout title="Return Policy">
       <div className="flex justify-center items-center m-20">
         <div className=" max-w-2xl">
-          <h1 className="text-3xl font-bold mb-10  text-center">
+          <h1 className="text-3xl font-bold mb-10  text-center flex justify-center">
             Return Policy
           </h1>
           <h3>
