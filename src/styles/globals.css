@@ -116,10 +116,20 @@ menu {
 }
 
 .primary-button {
-  @apply rounded bg-slate-600 py-2 px-4 shadow outline-none hover:bg-slate-400 active:bg-amber-700;
+  @apply rounded bg-slate-600 py-2 px-4 shadow outline-none hover:bg-slate-400;
+}
+
+input,
+select,
+textarea {
+  @apply rounded border p-2 outline-none ring-indigo-300 focus:ring;
 }
 
 @layer utilities {
+  .iconhover:hover {
+    opacity: 0.5;
+  }
+
   .bord {
     border: 1px solid rgba(134, 76, 76, 0.344);
     border-radius: 10px;
@@ -127,32 +137,94 @@ menu {
     -webkit-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.68);
     -moz-box-shadow: 0px 2px 0px 0px rgba(0, 0, 0, 0.68);
   }
-}
 
-@layer utilities {
-  .pausee {
-    -moz-animation-play-state: paused;
-    -webkit-animation-play-state: paused;
-    animation-play-state: paused;
-  }
-}
-
-@layer utilities {
   .asd {
     border: 1px solid rgba(89, 62, 62, 0.507);
   }
-}
 
-@layer utilities {
   .small-image {
     border-radius: 8px;
     width: 70px;
     height: 70px;
     cursor: pointer;
   }
-}
 
-@layer utilities {
+  .pausee {
+    -moz-animation-play-state: paused;
+    -webkit-animation-play-state: paused;
+    animation-play-state: paused;
+  }
+
+  .underline {
+    text-decoration: underline;
+  }
+
+  .cart-wrapper {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 100;
+    transition: all 1s ease-in-out;
+  }
+
+  .ddddd {
+    box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
+  }
+
+  .cart-container {
+    height: 100vh;
+    width: 600px;
+    background-color: white;
+    float: right;
+    padding: 40px 10px;
+    position: relative;
+    visibility: visible;
+    user-select: none;
+  }
+
+  .cart-heading {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    font-weight: 500;
+    gap: 2px;
+    margin-left: 10px;
+    border: none;
+    background-color: transparent;
+  }
+
+  .remove-underline:hover {
+    text-decoration: none;
+    text-decoration-line: none;
+    opacity: 0.8;
+  }
+
+  .cart-items-in-cart {
+    overflow: overlay;
+    height: calc(100vh - 204px);
+  }
+
+  .close-button {
+    cursor: pointer;
+    transform: rotate(45deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .close-button:hover {
+    transform: rotate(0deg);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .trash-bin-hover {
+    fill: red;
+    transition: all 0.3s ease;
+  }
+
   .roundBall {
     color: white;
     border-radius: 50%;
@@ -167,93 +239,5 @@ menu {
     -webkit-user-select: none; /* Safari */
     -ms-user-select: none; /* IE 10 and IE 11 */
     user-select: none; /* Standard syntax */
-  }
-}
-
-@layer utilities {
-  .underline {
-    text-decoration: underline;
-  }
-}
-
-@layer utilities {
-  .cart-wrapper {
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
-    position: fixed;
-    right: 0;
-    top: 0;
-    z-index: 100;
-    transition: all 1s ease-in-out;
-  }
-}
-
-@layer utilities {
-  .cart-container {
-    height: 100vh;
-    width: 600px;
-    background-color: white;
-    float: right;
-    padding: 40px 10px;
-    position: relative;
-    visibility: visible;
-    user-select: none;
-  }
-}
-
-@layer utilities {
-  .cart-heading {
-    display: flex;
-    align-items: center;
-    font-size: 18px;
-    font-weight: 500;
-    gap: 2px;
-    margin-left: 10px;
-    border: none;
-    background-color: transparent;
-  }
-}
-
-@layer utilities {
-  .trash-bin-hover {
-    fill: red;
-    transition: all 0.3s ease;
-  }
-}
-
-@layer utilities {
-  .close-button {
-    cursor: pointer;
-    transform: rotate(45deg);
-    transition: transform 0.3s ease-in-out;
-  }
-
-  .close-button:hover {
-    transform: rotate(0deg);
-    transition: transform 0.3s ease-in-out;
-  }
-}
-
-@layer utilities {
-  .cart-items-in-cart {
-    overflow: overlay;
-    height: calc(100vh - 204px);
-  }
-}
-
-@layer utilities {
-  .ddddd {
-    box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
-    -webkit-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
-    -moz-box-shadow: 0px -2px 2px 0px rgba(0, 0, 0, 0.75);
-  }
-}
-
-@layer utilities {
-  .remove-underline:hover {
-    text-decoration: none;
-    text-decoration-line: none;
-    opacity: 0.6;
   }
 }

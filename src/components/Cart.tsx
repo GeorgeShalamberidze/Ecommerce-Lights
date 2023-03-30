@@ -8,9 +8,11 @@ import {
 } from "react-icons/ai";
 import { GrClose } from "react-icons/gr";
 import IProduct from "@/interfaces/Product";
+import { useRouter } from "next/router";
 
 const Cart = () => {
   const cartRef = useRef<HTMLDivElement>(null);
+  const { pathname, push } = useRouter();
   const {
     qty,
     cartItems,
@@ -22,10 +24,16 @@ const Cart = () => {
   } = useStateContext();
 
   document.addEventListener("mousedown", (e) => {
-    if (e.target.className === "cart-wrapper") {
+    const target = e.target as HTMLElement;
+    if (target?.className === "cart-wrapper") {
       setShowCart(false);
     }
   });
+
+  const handleOnClick = () => {
+    if (pathname !== "/") push("/");
+    setShowCart(false);
+  };
 
   return (
     <div className="cart-wrapper" ref={cartRef}>
@@ -52,7 +60,7 @@ const Cart = () => {
             <button
               type="button"
               className="bg-transparent hover:bg-black text-gray-700 font-semibold hover:text-white py-2 px-4 border border-gray-500 hover:border-transparent rounded cursor-pointer mt-10"
-              onClick={() => setShowCart(false)}
+              onClick={handleOnClick}
             >
               Continue Shopping
             </button>
@@ -131,7 +139,10 @@ const Cart = () => {
             <div className="btn-checkout text-black w-8/12">
               <button
                 type="button"
-                onClick={() => {}}
+                onClick={() => {
+                  setShowCart(false);
+                  push("login?redirect=/shipping");
+                }}
                 className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded-md cursor-pointer rad w-full"
               >
                 Checkout

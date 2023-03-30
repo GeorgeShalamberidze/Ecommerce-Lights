@@ -13,8 +13,6 @@ export const StateContext = ({ children }) => {
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [qty, setQty] = useState(1);
 
-  console.log(Cookies);
-
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR("/api/mockData.json", fetcher);
 

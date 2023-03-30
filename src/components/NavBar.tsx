@@ -14,7 +14,7 @@ const NavBar = () => {
         <ul className="flex justify-between items-center px-4 text-lg">
           <li className="p-2">
             <Link
-              href="/Login"
+              href="/login"
               className="flex items-center mx-5 gap-2 font-bold text-xl"
             >
               <span>Login</span>

@@ -49,21 +49,21 @@ const Footer = () => {
             <Link
               href="https://www.instagram.com"
               target="_blank"
-              className="cursor-pointer"
+              className="cursor-pointer iconhover"
             >
               <AiFillInstagram size={30} />
             </Link>
             <Link
               href="https://www.twitter.com"
               target="_blank"
-              className="cursor-pointer"
+              className="cursor-pointer iconhover"
             >
               <AiOutlineTwitter size={30} />
             </Link>
             <Link
               href="https://www.facebook.com"
               target="_blank"
-              className="cursor-pointer"
+              className="cursor-pointer iconhover"
             >
               <AiOutlineFacebook size={30} />
             </Link>
