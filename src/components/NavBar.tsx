@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
 import Cart from "./Cart";
-import { CgProfile } from "react-icons/cg";
+import { CgLogOut, CgProfile } from "react-icons/cg";
 import { useStateContext } from "@/context/ProductContext";
 import { BsFillCartFill } from "react-icons/bs";
+import { MdSupervisorAccount } from "react-icons/md";
 import { useSession } from "next-auth/react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
@@ -49,9 +50,24 @@ const NavBar = () => {
                     "aria-labelledby": "basic-button",
                   }}
                 >
-                  <MenuItem onClick={handleClose}>Profile</MenuItem>
-                  <MenuItem onClick={handleClose}>My account</MenuItem>
-                  <MenuItem onClick={handleClose}>Logout</MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    Profile
+                    <span>
+                      <CgProfile />
+                    </span>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    My account
+                    <span>
+                      <MdSupervisorAccount />
+                    </span>
+                  </MenuItem>
+                  <MenuItem onClick={handleClose}>
+                    Logout{" "}
+                    <span>
+                      <CgLogOut />
+                    </span>
+                  </MenuItem>
                 </Menu>
               </div>
             ) : (

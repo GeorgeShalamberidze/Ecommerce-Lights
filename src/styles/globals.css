@@ -283,3 +283,19 @@ textarea {
     user-select: none; /* Standard syntax */
   }
 }
+
+/* Profile DropDown */
+.css-1ka5eyc-MuiPaper-root-MuiMenu-paper-MuiPopover-paper {
+  top: 140px !important;
+  width: 200px !important;
+}
+
+.css-6hp17o-MuiList-root-MuiMenu-list {
+  width: 100%;
+}
+
+.css-1hau5ki-MuiButtonBase-root-MuiMenuItem-root {
+  font-size: 23px !important;
+  display: flex;
+  justify-content: space-between;
+}
