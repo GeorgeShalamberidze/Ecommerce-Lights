@@ -13,7 +13,6 @@ export const StateContext = ({ children }) => {
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [qty, setQty] = useState(1);
 
-  // Next - way to fetch data
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR("/api/mockData.json", fetcher);
 
@@ -83,6 +82,14 @@ export const StateContext = ({ children }) => {
     });
   };
 
+  const resetCart = () => {
+    setProducts([]);
+    setShowCart(false);
+    setCartItems([]);
+    setTotalPrice(0);
+    setTotalQuantity(0);
+  };
+
   if (error) return <div>Failed to load data</div>;
   if (!data) return <div>Loading data...</div>;
   if (!products) {
@@ -105,6 +112,7 @@ export const StateContext = ({ children }) => {
         onAddToCart,
         toggleCartItemQuantity,
         handleDelete,
+        resetCart,
       }}
     >
       {children}
