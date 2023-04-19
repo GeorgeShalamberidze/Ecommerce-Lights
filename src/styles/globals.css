@@ -114,6 +114,24 @@ menu {
   overflow: scroll !important;
 }
 
+.bottom_nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.show {
+  top: 30px;
+  transition: all 0.3s ease-in-out;
+  z-index: -500;
+}
+
+.notShow {
+  top: -450px;
+  z-index: -500;
+  transition: all 0.5s ease-in-out;
+}
+
 .card {
   @apply mb-5 block rounded-lg border border-gray-200 shadow-md;
 }

@@ -14,7 +14,6 @@ const Cart = () => {
   const cartRef = useRef<HTMLDivElement>(null);
   const { pathname, push } = useRouter();
   const {
-    qty,
     cartItems,
     totalPrice,
     totalQuantity,

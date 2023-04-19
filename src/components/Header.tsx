@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { SearchBar, NavBar } from "../components";
 import { BiChevronDown } from "react-icons/bi";
@@ -198,6 +198,20 @@ const Header = () => {
     },
   ];
 
+  const [dropdownIndex, setDropdownIndex] = useState<number | null>(null);
+
+  const handleMouseEnter = (index: number) => {
+    setDropdownIndex(index);
+  };
+
+  const handleMouseLeave = () => {
+    setDropdownIndex(null);
+  };
+
+  document.addEventListener("mouseleave", (e) => {
+    const target = e.target as HTMLElement;
+  });
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="header_wrapper">
@@ -209,19 +223,33 @@ const Header = () => {
           <NavBar />
         </div>
 
-        <div className="bottom_nav text-white font-medium text-lg pb-4">
+        <div className="bottom_nav text-white font-medium text-lg flex justify-center">
           <nav aria-label="main">
             <ul className="flex gap-5">
               {navBarItems.map((item, index) => (
-                <li className="relative" key={index}>
-                  <a className="flex text-center items-center cursor-pointer no-underline">
-                    <span>{item.name}</span>
-                    {item.icon}
-                  </a>
-                  <div className="bg-slate-400 absolute top-14">
-                    <h1>{item.content}</h1>
-                  </div>
-                </li>
+                <div
+                  key={index}
+                  className="border-emerald-400 rounded cursor-pointer"
+                  onMouseEnter={() => handleMouseEnter(index)}
+                  onMouseLeave={() => handleMouseLeave()}
+                >
+                  <li className="relative">
+                    <a className="flex text-center items-center no-underline">
+                      <span>{item.name}</span>
+                      {item.icon}
+                    </a>
+                    <div
+                      // className="bg-slate-400 absolute top-8 dropdown_menu"
+                      className={`bg-slate-400 absolute top-8 dropdown_menu z-0 ${
+                        dropdownIndex === index ? "show" : "notShow"
+                      }`}
+                      onMouseEnter={() => handleMouseEnter(index)}
+                      onMouseLeave={() => handleMouseLeave()}
+                    >
+                      <h1>{item.content}</h1>
+                    </div>
+                  </li>
+                </div>
               ))}
             </ul>
           </nav>
