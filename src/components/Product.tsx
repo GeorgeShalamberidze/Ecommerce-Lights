@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import IProduct from "@/interfaces/Product";
 import { useStateContext } from "@/context/ProductContext";
 
 const Product = ({ product }: { product: IProduct }) => {
+  const [imgUrl, setImgUrl] = useState(product?.imgUrl);
   const { onAddToCart } = useStateContext();
+
+  const handleMouseOver = () => {
+    setImgUrl(product?.images[1]?.imgUrl);
+  };
+
+  const handleMouseOut = () => {
+    setImgUrl(product?.imgUrl);
+  };
+
   return (
     <div className="card">
       <Link href={`/product/${encodeURIComponent(product.slug)}`}>
         <img
-          src={product.imgUrl}
+          src={imgUrl}
           alt={product.name}
+          onMouseOver={handleMouseOver}
+          onMouseOut={handleMouseOut}
           className="rounded shadow w-full"
         />
       </Link>

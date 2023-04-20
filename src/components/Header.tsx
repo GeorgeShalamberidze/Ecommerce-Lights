@@ -224,12 +224,12 @@ const Header = () => {
         </div>
 
         <div className="bottom_nav text-white font-medium text-lg flex justify-center">
-          <nav aria-label="main">
-            <ul className="flex gap-5">
+          <nav aria-label="main" className="nav_main">
+            <ul className="flex gap-5 h-full items-center">
               {navBarItems.map((item, index) => (
                 <div
                   key={index}
-                  className="border-emerald-400 rounded cursor-pointer"
+                  className="border-emerald-400 rounded cursor-pointer flex items-center"
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={() => handleMouseLeave()}
                 >
@@ -240,7 +240,7 @@ const Header = () => {
                     </a>
                     <div
                       // className="bg-slate-400 absolute top-8 dropdown_menu"
-                      className={`bg-slate-400 absolute top-8 dropdown_menu z-0 ${
+                      className={`bg-slate-400 absolute top-2 dropdown_menu z-0 ${
                         dropdownIndex === index ? "show" : "notShow"
                       }`}
                       onMouseEnter={() => handleMouseEnter(index)}

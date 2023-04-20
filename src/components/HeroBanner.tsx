@@ -24,7 +24,7 @@ const HeroBanner = () => {
   };
 
   return (
-    <div className="overflow-hidden">
+    <div className="overflow-hidden slider-wrapper-main">
       <Slider {...settings} className="w-full">
         {bannerImages.map((img: IImage) => {
           return (
