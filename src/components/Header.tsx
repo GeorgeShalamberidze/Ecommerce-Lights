@@ -4,196 +4,98 @@ import { SearchBar, NavBar } from "../components";
 import { BiChevronDown } from "react-icons/bi";
 
 const Header = () => {
-  const navBarItems = [
+  const navbarItems = [
     {
       name: "DIY Kits",
-      content: (
-        <>
-          <ul>
-            <li>
-              <a href="/collections/all-diy-kits">All DIY Kits</a>
-            </li>
-            <li>
-              <a href="/collections/2-x-2">2'x 2'</a>
-            </li>
-            <li>
-              <a href="/collections/2-x-4">2'x 4'</a>
-            </li>
-            <li>
-              <a href="/collections/3-x-3">3'x 3'</a>
-            </li>
-            <li>
-              <a href="/collections/4-x-4">4'x 4'</a>
-            </li>
-            <li>
-              <a href="/collections/5-x-5">5'x 5'</a>
-            </li>
-            <li>
-              <a href="/collections/mass-medical">Mass Medical</a>
-            </li>
-            <li>
-              <a href="/collections/supplemental">Supplemental</a>
-            </li>
-          </ul>
-        </>
-      ),
+      aTag: [
+        { href: "/collections/all-diy-kits", content: "All DIY Kits" },
+        { href: "/collections/2-x-2", content: "2'x 2'" },
+        { href: "/collections/2-x-4", content: "2'x 4'" },
+        { href: "/collections/3-x-3", content: "3'x 3'" },
+        { href: "/collections/4-x-4", content: "4'x 4'" },
+        { href: "/collections/5-x-5", content: "5'x 5'" },
+        { href: "/collections/mass-medical", content: "Mass Medical" },
+        { href: "/collections/supplemental", content: "Supplemental" },
+      ],
       icon: <BiChevronDown />,
     },
     {
       name: "Drivers",
-      content: (
-        <>
-          <ul>
-            <li>
-              <a href="collection/all-drivers">All Drivers</a>
-            </li>
-            <li>
-              <a href="collection/dc-dc-drivers">DC-DC Drivers</a>
-            </li>
-            <li>
-              <a href="collection/dimmable-drivers">Dimmable Drivers</a>
-            </li>
-            <li>
-              <a href="collection/non-dimmable-drivers">Non-Dimmable Drivers</a>
-            </li>
-          </ul>
-        </>
-      ),
+      aTag: [
+        { href: "/collection/all-drivers", content: "All Drivers" },
+        { href: "/collection/dc-dc-drivers", content: "DC-DC Drivers" },
+        { href: "/collection/dimmable-drivers", content: "Dimmable Drivers" },
+        {
+          href: "/collection/non-dimmable-drivers",
+          content: "Non-Dimmable Drivers",
+        },
+      ],
       icon: <BiChevronDown />,
     },
     {
       name: "LEDs",
-      content: (
-        <>
-          <ul>
-            <li>
-              <a href="collection/all-leds">All LEDs</a>
-            </li>
-            <li>
-              <a href="collection/cob-and-pucks">COB & Pucks</a>
-            </li>
-            <li>
-              <a href="collection/enhancement-pucks">Enhancement Pucks</a>
-            </li>
-            <li>
-              <a href="collection/supplemental-boards">Supplemental Boards</a>
-            </li>
-            <li>
-              <a href="collection/led-blue">Blue</a>
-            </li>
-            <li>
-              <a href="collection/led-green">Green</a>
-            </li>
-            <li>
-              <a href="collection/led-red">Red</a>
-            </li>
-            <li>
-              <a href="collection/led-white">White</a>
-            </li>
-            <li>
-              <a href="collection/infrared">Infrared</a>
-            </li>
-          </ul>
-        </>
-      ),
+      aTag: [
+        { href: "/collection/all-leds", content: "All LEDs" },
+        { href: "/collection/cob-and-pucks", content: "COB & Pucks" },
+        { href: "/collection/enhancement-pucks", content: "Enhancement Pucks" },
+        {
+          href: "/collection/supplemental-boards",
+          content: "Supplemental Boards",
+        },
+        { href: "/collection/collection/led-blue", content: "Blue" },
+        { href: "/collection/led-green", content: "Green" },
+        { href: "/collection/led-red", content: "Red" },
+        { href: "/collection/led-white", content: "White" },
+        { href: "/collection/led-infrared", content: "Infrared" },
+      ],
       icon: <BiChevronDown />,
     },
     {
       name: "Fixtures",
-      content: (
-        <>
-          <ul>
-            <li>
-              <a href="collection/all-fixtures">All Fixtures</a>
-            </li>
-            <li>
-              <a href="collection/horticulture-fixtures">
-                Horticulture Fixtures
-              </a>
-            </li>
-            <li>
-              <a href="collection/aquarium-fixtures">Aquarium Fixtures</a>
-            </li>
-          </ul>
-        </>
-      ),
+      aTag: [
+        { href: "/collection/all-fixtures", content: "All Fixtures" },
+        {
+          href: "/collection/horticulture-fixtures",
+          content: "Horticulture Fixtures",
+        },
+        { href: "/collection/aquarium-fixtures", content: "Aquarium Fixtures" },
+      ],
       icon: <BiChevronDown />,
     },
     {
       name: "Heatsinks",
-      content: (
-        <>
-          <ul>
-            <li>
-              <a href="collection/all-heatsinks">All Heatsinks</a>
-            </li>
-            <li>
-              <a href="collection/canopy-substrate">Canopy Substrate</a>
-            </li>
-            <li>
-              <a href="collection/pin">Pin</a>
-            </li>
-          </ul>
-        </>
-      ),
+      aTag: [
+        { href: "/collection/all-heatsinks", content: "All Heatsinks" },
+        { href: "/collection/canopy-substrate", content: "Canopy Substrate" },
+        { href: "/collection/pin", content: "Pin" },
+      ],
       icon: <BiChevronDown />,
     },
     {
       name: "Dimmers",
-      content: (
-        <>
-          <ul>
-            <li>
-              <a href="collection/all-dimmers">All Dimmers</a>
-            </li>
-            <li>
-              <a href="collection/0-10V">0-10V</a>
-            </li>
-            <li>
-              <a href="collection/pwm">PWM</a>
-            </li>
-          </ul>
-        </>
-      ),
+      aTag: [
+        { href: "/collection/all-dimmers", content: "All Dimmers" },
+        { href: "/collection/0-10V", content: "0-10V" },
+        { href: "/collection/pwm", content: "PWM" },
+      ],
       icon: <BiChevronDown />,
     },
     {
       name: "Accessories",
-      content: (
-        <>
-          <ul>
-            <li>
-              <a href="collection/all-accessories">Accessories</a>
-            </li>
-            <li>
-              <a href="collection/ac-adapters">AC Adapters</a>
-            </li>
-            <li>
-              <a href="collection/fans">Fans</a>
-            </li>
-            <li>
-              <a href="collection/hanging-kits">Hanging Kits</a>
-            </li>
-            <li>
-              <a href="collection/led-testers">LED Testers</a>
-            </li>
-            <li>
-              <a href="collection/reflectors">Reflectors</a>
-            </li>
-            <li>
-              <a href="collection/solderless-accessories">
-                Solderless Accessories
-              </a>
-            </li>
-            <li>
-              <a href="collection/thermal-compounds">Thermal Compounds</a>
-            </li>
-            <li>
-              <a href="collection/wire-management">Wire-Management</a>
-            </li>
-          </ul>
-        </>
-      ),
+      aTag: [
+        { href: "/collection/all-accessories", content: "All Accessories" },
+        { href: "/collection/ac-adapters", content: "AC Adapters" },
+        { href: "/collection/fans", content: "Fans" },
+        { href: "/collection/hanging-kits", content: "Hanging Kits" },
+        { href: "/collection/led-testers", content: "LED Testers" },
+        { href: "/collection/reflectors", content: "Reflectors" },
+        {
+          href: "/collection/solderless-accessories",
+          content: "Solderless Accessories",
+        },
+        { href: "/collection/thermal-compounds", content: "Thermal Compounds" },
+        { href: "/collection/wire-management", content: "Wire-Management" },
+      ],
       icon: <BiChevronDown />,
     },
   ];
@@ -226,27 +128,37 @@ const Header = () => {
         <div className="bottom_nav text-white font-medium text-lg flex justify-center">
           <nav aria-label="main" className="nav_main">
             <ul className="flex gap-5 h-full items-center">
-              {navBarItems.map((item, index) => (
+              {navbarItems.map((item, index) => (
                 <div
                   key={index}
-                  className="border-emerald-400 rounded cursor-pointer flex items-center"
+                  className="border-emerald-400 rounded cursor-pointer flex items-center h-full"
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={() => handleMouseLeave()}
                 >
-                  <li className="relative">
+                  <li className="relative dropdown_menu_list">
                     <a className="flex text-center items-center no-underline">
                       <span>{item.name}</span>
                       {item.icon}
                     </a>
                     <div
-                      // className="bg-slate-400 absolute top-8 dropdown_menu"
-                      className={`bg-slate-400 absolute top-2 dropdown_menu z-0 ${
+                      className={`bg-slate-400 absolute top-2 dropdown_menu z-0 -left-10 ${
                         dropdownIndex === index ? "show" : "notShow"
                       }`}
                       onMouseEnter={() => handleMouseEnter(index)}
                       onMouseLeave={() => handleMouseLeave()}
                     >
-                      <h1>{item.content}</h1>
+                      <div>
+                        <ul className="flex flex-col gap-3 w-max">
+                          {item.aTag.map((a, i) => (
+                            <li
+                              key={i}
+                              className="border-b-2 border-stone-100 last:border-b-0 tytyty"
+                            >
+                              <a href={a.href}>{a.content}</a>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
                     </div>
                   </li>
                 </div>

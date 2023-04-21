@@ -129,7 +129,7 @@ menu {
 }
 
 .show {
-  top: 30px;
+  top: 36px;
   transition: all 0.3s ease-in-out;
   z-index: -500;
 }
@@ -154,6 +154,22 @@ menu {
   box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   -webkit-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
   -moz-box-shadow: 0px 2px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+.dropdown_menu {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  width: fit-content;
+  padding: 5px 30px 5px 10px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+}
+
+.tytyty:hover {
+  opacity: 0.8;
+}
+
+.dropdown_menu_list {
+  width: max-content;
 }
 
 .card {
