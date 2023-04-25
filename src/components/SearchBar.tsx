@@ -6,6 +6,8 @@ import { Context } from "../context/ProductContext";
 import ICategory from "@/interfaces/Category";
 import styles from "../styles/SearchBar.module.css";
 import IProduct from "@/interfaces/Product";
+import Link from "next/link";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const SearchBar = () => {
   const contextData = useContext(Context);
@@ -15,6 +17,7 @@ const SearchBar = () => {
     categories[0]
   );
   const [searchTerm, setSearchTerm] = useState("");
+  const [hasFocus, setHasFocus] = useState(false);
 
   const filteredProducts = products.filter((product: IProduct) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -42,22 +45,39 @@ const SearchBar = () => {
           />
           <InputBase
             className={styles.input}
-            onChange={(e: SyntheticEvent) => setSearchTerm(e.target?.value)}
+            onChange={(e: any) => setSearchTerm(e.target?.value)}
             placeholder="რას ეძებ?"
             inputProps={{ "aria-label": "Search for a Product" }}
+            onFocus={() => setHasFocus(true)}
+            onBlur={() => setHasFocus(false)}
           />
+          <AiOutlineCloseCircle className="absolute top-6 right-20" size={20} />
         </div>
         <IconButton type="submit" aria-label="search" onSubmit={onSubmit}>
           <BsSearch />
         </IconButton>
       </Paper>
       {searchTerm &&
+      searchTerm.length >= 2 &&
+      hasFocus &&
+      filteredProducts.length > 0 ? (
+        <div className="found_products absolute">
+          {filteredProducts.map((prod: IProduct, i: number) => (
+            <div className="mt-2 cursor-pointer found_prod" key={i}>
+              <a href={`${prod.slug}`}>{prod.name}</a>
+            </div>
+          ))}
+        </div>
+      ) : searchTerm &&
         searchTerm.length >= 2 &&
-        filteredProducts.map((prod: IProduct, i: number) => (
-          <div className="found_products absolute" key={i}>
-            {prod.name}
-          </div>
-        ))}
+        hasFocus &&
+        filteredProducts.length === 0 ? (
+        <div className="found_products absolute">
+          <h1>No Products Found...</h1>
+        </div>
+      ) : (
+        ""
+      )}
     </Container>
   );
 };
