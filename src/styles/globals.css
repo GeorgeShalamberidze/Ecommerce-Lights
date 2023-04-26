@@ -259,6 +259,8 @@ textarea {
   }
 
   .found_products {
+    display: flex;
+    flex-direction: column;
     width: calc(100% - 45px);
     top: 100px;
     background-color: rgb(13, 15, 12);

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { SearchBar, NavBar } from "../components";
 import { BiChevronDown } from "react-icons/bi";
+import { useStateContext } from "@/context/ProductContext";
 
 const Header = () => {
   const navbarItems = [
@@ -100,6 +101,8 @@ const Header = () => {
     },
   ];
 
+  const { showCart } = useStateContext();
+
   const [dropdownIndex, setDropdownIndex] = useState<number | null>(null);
 
   const handleMouseEnter = (index: number) => {
@@ -131,7 +134,9 @@ const Header = () => {
               {navbarItems.map((item, index) => (
                 <div
                   key={index}
-                  className="border-emerald-400 rounded cursor-pointer flex items-center h-full"
+                  className={`border-emerald-400 rounded cursor-pointer flex items-center h-full ${
+                    showCart ? "pointer-events-none" : ""
+                  }`}
                   onMouseEnter={() => handleMouseEnter(index)}
                   onMouseLeave={() => handleMouseLeave()}
                 >

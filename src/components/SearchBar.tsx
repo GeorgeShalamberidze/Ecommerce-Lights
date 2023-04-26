@@ -1,12 +1,10 @@
 import React, { SyntheticEvent, useContext, useState } from "react";
-import SelectCategory from "./SelectCategory";
 import { Container, InputBase, IconButton, Paper } from "@mui/material";
 import { BsSearch } from "react-icons/bs";
 import { Context } from "../context/ProductContext";
 import ICategory from "@/interfaces/Category";
 import styles from "../styles/SearchBar.module.css";
 import IProduct from "@/interfaces/Product";
-import Link from "next/link";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const SearchBar = () => {
@@ -28,34 +26,27 @@ const SearchBar = () => {
     console.log("Submited");
   };
 
-  const handleSelectChange = (e: any) => {
-    const { value } = e.target;
-    const category = categories.find((cat: ICategory) => cat.id === value);
-    setSelectedCategory(category);
-  };
-
   return (
     <Container className="relative">
       <Paper component="form" className="root" onSubmit={onSubmit}>
-        <div style={{ display: "flex", flex: 1 }}>
-          <SelectCategory
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onChange={handleSelectChange}
-          />
+        <div className="flex flex-1 h-16">
+          <IconButton type="submit" aria-label="search" onSubmit={onSubmit}>
+            <BsSearch />
+          </IconButton>
           <InputBase
             className={styles.input}
             onChange={(e: any) => setSearchTerm(e.target?.value)}
             placeholder="რას ეძებ?"
             inputProps={{ "aria-label": "Search for a Product" }}
             onFocus={() => setHasFocus(true)}
-            onBlur={() => setHasFocus(false)}
+            value={searchTerm}
           />
-          <AiOutlineCloseCircle className="absolute top-6 right-20" size={20} />
+          <AiOutlineCloseCircle
+            className="absolute top-5 right-12 cursor-pointer"
+            size={23}
+            onClick={() => setSearchTerm("")}
+          />
         </div>
-        <IconButton type="submit" aria-label="search" onSubmit={onSubmit}>
-          <BsSearch />
-        </IconButton>
       </Paper>
       {searchTerm &&
       searchTerm.length >= 2 &&
@@ -63,9 +54,14 @@ const SearchBar = () => {
       filteredProducts.length > 0 ? (
         <div className="found_products absolute">
           {filteredProducts.map((prod: IProduct, i: number) => (
-            <div className="mt-2 cursor-pointer found_prod" key={i}>
-              <a href={`${prod.slug}`}>{prod.name}</a>
-            </div>
+            <a
+              className="mt-2 cursor-pointer found_prod"
+              key={i}
+              href={`/product/${prod.slug}`}
+              onClick={() => setHasFocus(false)}
+            >
+              {prod.name}
+            </a>
           ))}
         </div>
       ) : searchTerm &&
