@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useContext, useState } from "react";
+import React, { SyntheticEvent, useContext, useEffect, useState } from "react";
 import { Container, InputBase, IconButton, Paper } from "@mui/material";
 import { BsSearch } from "react-icons/bs";
 import { Context } from "../context/ProductContext";
@@ -8,10 +8,15 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const SearchBar = () => {
   const contextData = useContext(Context);
-  const { products } = contextData;
-
-  const [searchTerm, setSearchTerm] = useState("");
-  const [hasFocus, setHasFocus] = useState(false);
+  const {
+    products,
+    searchTerm,
+    setSearchTerm,
+    hasFocus,
+    setHasFocus,
+    isSearchDrowDownOpen,
+    setIsSearchDropDownOpen,
+  } = contextData;
 
   const filteredProducts = products.filter((product: IProduct) =>
     product.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -21,6 +26,25 @@ const SearchBar = () => {
     e.preventDefault();
     console.log("Submited");
   };
+
+  useEffect(() => {
+    const handleDocumentClick = (e: any) => {
+      const tar = e.target as HTMLElement;
+      if (tar.classList.contains("overlay_dropdown")) {
+        setIsSearchDropDownOpen(false);
+      }
+    };
+
+    document.addEventListener("click", handleDocumentClick);
+
+    if (searchTerm && searchTerm.length >= 2 && hasFocus)
+      setIsSearchDropDownOpen(true);
+    else setIsSearchDropDownOpen(false);
+
+    return () => {
+      document.removeEventListener("click", handleDocumentClick);
+    };
+  }, [searchTerm, hasFocus]);
 
   return (
     <Container className="relative">
@@ -35,6 +59,7 @@ const SearchBar = () => {
             placeholder="რას ეძებ?"
             inputProps={{ "aria-label": "Search for a Product" }}
             onFocus={() => setHasFocus(true)}
+            onBlur={() => setHasFocus(false)}
             value={searchTerm}
           />
           <AiOutlineCloseCircle
@@ -44,31 +69,26 @@ const SearchBar = () => {
           />
         </div>
       </Paper>
-      {searchTerm &&
-      searchTerm.length >= 2 &&
-      hasFocus &&
-      filteredProducts.length > 0 ? (
-        <div className="found_products absolute">
+      {isSearchDrowDownOpen && <div className="overlay_dropdown"></div>}
+      {isSearchDrowDownOpen && filteredProducts.length > 0 ? (
+        <div className="found_products">
           {filteredProducts.map((prod: IProduct, i: number) => (
             <a
               className="mt-2 cursor-pointer found_prod"
               key={i}
               href={`/product/${prod.slug}`}
-              onClick={() => setHasFocus(false)}
             >
               {prod.name}
             </a>
           ))}
         </div>
-      ) : searchTerm &&
-        searchTerm.length >= 2 &&
-        hasFocus &&
-        filteredProducts.length === 0 ? (
-        <div className="found_products absolute">
-          <h1>No Products Found...</h1>
-        </div>
       ) : (
-        ""
+        isSearchDrowDownOpen &&
+        filteredProducts.length === 0 && (
+          <div className="found_products">
+            <h1>No Products Found...</h1>
+          </div>
+        )
       )}
     </Container>
   );

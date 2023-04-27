@@ -11,6 +11,9 @@ export const StateContext = ({ children }) => {
   const [totalPrice, setTotalPrice] = useState(0);
   const [totalQuantity, setTotalQuantity] = useState(0);
   const [qty, setQty] = useState(1);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [hasFocus, setHasFocus] = useState(false);
+  const [isSearchDrowDownOpen, setIsSearchDropDownOpen] = useState(false);
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data, error } = useSWR("/api/mockData.json", fetcher);
@@ -111,6 +114,12 @@ export const StateContext = ({ children }) => {
         toggleCartItemQuantity,
         handleDelete,
         resetCart,
+        searchTerm,
+        setSearchTerm,
+        hasFocus,
+        setHasFocus,
+        isSearchDrowDownOpen,
+        setIsSearchDropDownOpen,
       }}
     >
       {children}
