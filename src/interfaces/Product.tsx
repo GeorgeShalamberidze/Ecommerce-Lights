@@ -5,6 +5,6 @@ export default interface IProduct {
   price: string;
   reviewCount: number;
   imgUrl: string;
-  images: [{ imgUrl: string }];
+  images: { imgUrl: string }[];
   quantity?: number;
 }
