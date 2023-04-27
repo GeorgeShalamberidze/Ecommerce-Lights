@@ -1,4 +1,4 @@
-import React, { SyntheticEvent, useContext, useEffect, useState } from "react";
+import React, { SyntheticEvent, useContext, useEffect } from "react";
 import { Container, InputBase, IconButton, Paper } from "@mui/material";
 import { BsSearch } from "react-icons/bs";
 import { Context } from "../context/ProductContext";
@@ -44,7 +44,7 @@ const SearchBar = () => {
     return () => {
       document.removeEventListener("click", handleDocumentClick);
     };
-  }, [searchTerm, hasFocus]);
+  }, [searchTerm, hasFocus, setIsSearchDropDownOpen]);
 
   return (
     <Container className="relative">
@@ -59,7 +59,6 @@ const SearchBar = () => {
             placeholder="რას ეძებ?"
             inputProps={{ "aria-label": "Search for a Product" }}
             onFocus={() => setHasFocus(true)}
-            onBlur={() => setHasFocus(false)}
             value={searchTerm}
           />
           <AiOutlineCloseCircle
