@@ -18,7 +18,7 @@ interface CustomSession extends Session {
 export default NextAuth({
   providers: [
     CredentialsProvider({
-      async authorize(credentials, req) {
+      async authorize(credentials: any) {
         await db.connect();
         const user = await UserModel.findOne({
           email: credentials!.email,

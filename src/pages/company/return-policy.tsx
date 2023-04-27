@@ -21,7 +21,7 @@ const ReturnPolicy = () => {
               If you received a defective item please notify us immediately at
               gshalamberidze@lights.com. We will need you to send the item in
               for verification, so you will need to cover shipping to us and
-              we'll cover shipping of the return item going back to you (if
+              we&apos;ll cover shipping of the return item going back to you (if
               defective).
             </p>
             <br />
@@ -33,11 +33,11 @@ const ReturnPolicy = () => {
             <br />
             <p>
               If you need to return an item, simply login to your account, view
-              the order using the "Complete Orders" link under the My Account
-              menu and click the Return Item(s) button. We'll notify you via
-              e-mail of your refund once we've received and processed the
-              returned item. Returns typically take 3-5 business days to process
-              once we receive them.
+              the order using the &quot;Complete Orders&quot; link under the My
+              Account menu and click the Return Item(s) button. We&apos;ll
+              notify you via e-mail of your refund once we&apos;ve received and
+              processed the returned item. Returns typically take 3-5 business
+              days to process once we receive them.
             </p>
             <br />
           </h3>

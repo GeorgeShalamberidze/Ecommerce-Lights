@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Link from "next/link";
 import { SearchBar, NavBar } from "../components";
 import { BiChevronDown } from "react-icons/bi";
 import { useStateContext } from "@/context/ProductContext";
+import Image from "next/image";
 
 const Header = () => {
   const navbarItems = [
@@ -113,16 +114,17 @@ const Header = () => {
     setDropdownIndex(null);
   };
 
-  document.addEventListener("mouseleave", (e) => {
-    const target = e.target as HTMLElement;
-  });
-
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       <div className="header_wrapper">
         <div className="header_container">
           <Link href="/">
-            <img src="/assets/lights_logo2.png" alt="light bulb" />
+            <Image
+              src="/assets/lights_logo2.png"
+              alt="light bulb"
+              width={500}
+              height={500}
+            />
           </Link>
           <SearchBar />
           <NavBar />

@@ -9,6 +9,7 @@ import {
 import { GrClose } from "react-icons/gr";
 import IProduct from "@/interfaces/Product";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const Cart = () => {
   const cartRef = useRef<HTMLDivElement>(null);
@@ -71,15 +72,17 @@ const Cart = () => {
 
         <div className="flex text-black font-bold flex-col cart-items-in-cart">
           {cartItems.length >= 1 &&
-            cartItems.map((product: IProduct, i: number) => (
+            cartItems.map((product: IProduct) => (
               <div
                 className="product flex justify-between w-full gap-3 border-b border-gray-300 cart_items"
                 key={product.id}
               >
-                <img
+                <Image
                   src={product.images[0].imgUrl}
                   alt="product that was added to cart"
                   className="w-4/12 "
+                  width={500}
+                  height={500}
                 />
 
                 <div className="grow flex flex-col gap-10">

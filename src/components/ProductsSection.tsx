@@ -4,7 +4,7 @@ import React from "react";
 import Product from "./Product";
 
 const ProductsSection = () => {
-  const { products, categories } = useStateContext();
+  const { products } = useStateContext();
 
   return (
     <div className="mt-20">

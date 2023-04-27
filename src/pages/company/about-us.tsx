@@ -19,15 +19,15 @@ const AboutUs = () => {
               Since the beginning we have done all of our pcb, heatsink, and
               general design in-house, and have carefully selected suppliers to
               deliver quality made products at great prices. If you think we
-              should carry a product that you don't see on the site, have a
+              should carry a product that you don&apos;t see on the site, have a
               wholesale inquiry, or just have any general comments or questions
               please send an e-mail to gshalamberidze@gmail.com or give us a
               call at +995 577 123 123
             </p>
             <br />
             <p>
-              f you'd like to write us/stop by/mail a money order for an order
-              our address is:
+              If you&apos;d like to write us/stop by/mail a money order for an
+              order our address is:
             </p>
             <br />
             <p>51, Tskneti Highway</p>

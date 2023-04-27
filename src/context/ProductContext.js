@@ -1,7 +1,6 @@
-import React, { createContext, useState, useEffect, useContext } from "react";
+import React, { createContext, useState, useContext } from "react";
 import productCategories from "../data/categories";
 import useSWR from "swr";
-import Cookies from "js-cookie";
 
 export const Context = createContext();
 
@@ -14,7 +13,7 @@ export const StateContext = ({ children }) => {
   const [qty, setQty] = useState(1);
 
   const fetcher = (url) => fetch(url).then((res) => res.json());
-  const { data, error, isLoading } = useSWR("/api/mockData.json", fetcher);
+  const { data, error } = useSWR("/api/mockData.json", fetcher);
 
   const onAddToCart = (product, quantity) => {
     const checkProductInCart = cartItems.find((item) => item.id === product.id);
@@ -67,7 +66,6 @@ export const StateContext = ({ children }) => {
         setTotalPrice((prev) => prev - foundProduct.price);
         setTotalQuantity((prev) => prev - 1);
       }
-    } else {
     }
   };
 

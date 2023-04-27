@@ -2,18 +2,14 @@ import React, { SyntheticEvent, useContext, useState } from "react";
 import { Container, InputBase, IconButton, Paper } from "@mui/material";
 import { BsSearch } from "react-icons/bs";
 import { Context } from "../context/ProductContext";
-import ICategory from "@/interfaces/Category";
 import styles from "../styles/SearchBar.module.css";
 import IProduct from "@/interfaces/Product";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const SearchBar = () => {
   const contextData = useContext(Context);
-  const { products, categories } = contextData;
+  const { products } = contextData;
 
-  const [selectedCategory, setSelectedCategory] = useState<ICategory>(
-    categories[0]
-  );
   const [searchTerm, setSearchTerm] = useState("");
   const [hasFocus, setHasFocus] = useState(false);
 
