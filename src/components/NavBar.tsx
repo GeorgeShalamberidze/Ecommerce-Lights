@@ -9,11 +9,14 @@ import { signOut, useSession } from "next-auth/react";
 import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
+import { useRouter } from "next/router";
 
 const NavBar = () => {
   const { showCart, setShowCart, totalQuantity, resetCart } = useStateContext();
   const { status, data: session } = useSession();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const { pathname, push } = useRouter();
+
   const open = Boolean(anchorEl);
   const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
     setAnchorEl(event.currentTarget);
@@ -26,6 +29,15 @@ const NavBar = () => {
     setAnchorEl(null);
     resetCart();
     signOut({ callbackUrl: "/" });
+  };
+
+  const handleCartClick = () => {
+    if (!showCart) setShowCart(true);
+    else {
+      setShowCart(false);
+      console.log(pathname);
+      if (pathname !== "/cart") push("/cart");
+    }
   };
 
   return (
@@ -90,7 +102,8 @@ const NavBar = () => {
             <button
               type="button"
               className="flex items-center mx-5 gap-2 font-bold text-xl cursor-pointer hover:underline"
-              onClick={() => setShowCart((prev: boolean) => !prev)}
+              // onClick={() => setShowCart((prev: boolean) => !prev)}
+              onClick={handleCartClick}
             >
               <span>Cart</span>
               <BsFillCartFill size={25} className="relative" />

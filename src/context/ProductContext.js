@@ -108,6 +108,7 @@ export const StateContext = ({ children }) => {
         totalQuantity,
         qty,
         setShowCart,
+        showCart,
         incrementQuantity,
         decrementQuantity,
         onAddToCart,
