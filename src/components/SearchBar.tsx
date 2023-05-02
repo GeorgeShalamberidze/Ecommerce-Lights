@@ -56,16 +56,18 @@ const SearchBar = () => {
           <InputBase
             className={styles.input}
             onChange={(e: any) => setSearchTerm(e.target?.value)}
-            placeholder="რას ეძებ?"
+            placeholder="Search for a product..."
             inputProps={{ "aria-label": "Search for a Product" }}
             onFocus={() => setHasFocus(true)}
             value={searchTerm}
           />
-          <AiOutlineCloseCircle
-            className="absolute top-5 right-12 cursor-pointer"
-            size={23}
-            onClick={() => setSearchTerm("")}
-          />
+          {isSearchDrowDownOpen && (
+            <AiOutlineCloseCircle
+              className="absolute top-5 right-12 cursor-pointer"
+              size={23}
+              onClick={() => setSearchTerm("")}
+            />
+          )}
         </div>
       </Paper>
       {isSearchDrowDownOpen && <div className="overlay_dropdown"></div>}

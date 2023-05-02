@@ -3,9 +3,9 @@ import { FormData } from "@/types/FormType";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { RegisterOptions, SubmitHandler, useForm } from "react-hook-form";
-import { BiShow } from "react-icons/bi";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/router";
+import { AiFillEye, AiFillEyeInvisible } from "react-icons/ai";
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -104,11 +104,19 @@ const Login = () => {
                   },
                 })}
               />
-              <BiShow
-                className="absolute top-2 right-3 hover:fill-neutral-500 cursor-pointer"
-                size={25}
-                onClick={() => setShowPassword(!showPassword)}
-              />
+              {!showPassword ? (
+                <AiFillEye
+                  className="absolute top-2 right-3 hover:fill-neutral-500 cursor-pointer"
+                  size={25}
+                  onClick={() => setShowPassword(true)}
+                />
+              ) : (
+                <AiFillEyeInvisible
+                  className="absolute top-2 right-3 hover:fill-neutral-500 cursor-pointer"
+                  size={25}
+                  onClick={() => setShowPassword(false)}
+                />
+              )}
             </div>
             {errors.password && (
               <div className="text-red-500 mt-1 font-bold">
