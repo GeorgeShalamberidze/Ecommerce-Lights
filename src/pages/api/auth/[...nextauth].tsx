@@ -1,8 +1,8 @@
 import NextAuth, { User, Session } from "next-auth";
-import CredentialsProvider from "next-auth/providers/credentials";
-import UserModel from "../../../../models/User";
-import db from "../../../../utils/db";
-import bcryptjs from "bcryptjs";
+// import CredentialsProvider from "next-auth/providers/credentials";
+// import UserModel from "../../../../models/User";
+// import db from "../../../../utils/db";
+// import bcryptjs from "bcryptjs";
 
 interface CustomUser extends User {
   isAdmin?: boolean;
