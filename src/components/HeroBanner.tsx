@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import IImage from "@/interfaces/Image";
+import Image from "next/image";
 
 const HeroBanner = () => {
   const bannerImages: IImage[] = [
@@ -29,7 +30,13 @@ const HeroBanner = () => {
         {bannerImages.map((img: IImage) => {
           return (
             <div key={img.id}>
-              <img src={img.imgUrl} alt="banner" className="w-full h-auto" />
+              <Image
+                width={1920}
+                height={1080}
+                src={img.imgUrl}
+                alt="banner"
+                className="w-full h-auto"
+              />
             </div>
           );
         })}

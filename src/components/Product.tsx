@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import IProduct from "@/interfaces/Product";
 import { useStateContext } from "@/context/ProductContext";
+import Image from "next/image";
 
 const Product = ({ product }: { product: IProduct }) => {
   const [imgUrl, setImgUrl] = useState(product?.imgUrl);
@@ -18,7 +19,9 @@ const Product = ({ product }: { product: IProduct }) => {
   return (
     <div className="card">
       <Link href={`/product/${encodeURIComponent(product.slug)}`}>
-        <img
+        <Image
+          width={1920}
+          height={1080}
           src={imgUrl}
           alt={product.name}
           onMouseOver={handleMouseOver}

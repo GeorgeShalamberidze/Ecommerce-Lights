@@ -15,6 +15,7 @@ import { IoIosArrowRoundBack } from "react-icons/io";
 import Link from "next/link";
 import { useStateContext } from "@/context/ProductContext";
 import { ProductII } from "@/components";
+import Image from "next/image";
 
 const ProductDetails = () => {
   const [index, setIndex] = useState(0);
@@ -82,11 +83,13 @@ const ProductDetails = () => {
               className="cursor-pointer"
               onClick={handleLeftClick}
             />
-            <img
+            <Image
               src={product.images[index].imgUrl}
+              width={1920}
+              height={1080}
               alt="products"
               className="object-contain w-full h-96"
-            ></img>
+            />
             <AiOutlineRight
               size={50}
               className="cursor-pointer"
@@ -95,8 +98,10 @@ const ProductDetails = () => {
           </div>
           <div className="small-images-container flex mt-5 gap-4 mx-20">
             {product.images.map((item: { imgUrl: string }, i: number) => (
-              <img
+              <Image
                 key={i}
+                width={1200}
+                height={1000}
                 src={item.imgUrl}
                 alt="product-description"
                 onClick={() => setIndex(i)}

@@ -1,12 +1,19 @@
 import React from "react";
 import Link from "next/link";
 import IProduct from "@/interfaces/Product";
+import Image from "next/image";
 
 const ProductII = ({ product }: { product: IProduct }) => {
   return (
     <div className="bord shadow border-red-200 mb-20">
       <Link href={`/product/${encodeURIComponent(product.slug)}`}>
-        <img src={product.imgUrl} alt={product.name} className="w-full" />
+        <Image
+          src={product.imgUrl}
+          alt={product.name}
+          className="w-full"
+          width={1000}
+          height={1000}
+        />
       </Link>
 
       <div className="flex flex-col p-1 ">
